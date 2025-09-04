@@ -33,8 +33,7 @@ export default function App() {
         </div>
 
         <p className="mt-6 text-gray-700">
-          Hi! I’m a passionate developer who loves building clean and modern web
-          apps. Always learning and creating something new!
+          Hi! I’m a passionate developer!
         </p>
       </div>
     </div>
