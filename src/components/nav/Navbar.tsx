@@ -5,7 +5,7 @@ const Navbar = () => {
   const links = ["Home", "About", "Projects", "Contact"];
 
   return (
-    <nav className="fixed top-0 w-full bg-white shadow-md z-50">
+    <nav className="fixed top-0 w-full bg-white z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
         <Link
           to={"home"}
