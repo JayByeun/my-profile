@@ -4,10 +4,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'],
-        body: ['Roboto', 'sans-serif'],
+        heading: ["Orbitron", "sans-serif"],
+        body: ["Inter", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

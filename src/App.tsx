@@ -6,7 +6,7 @@ import Contact from "./components/nav/Contact";
 
 const App = () => {
   return (
-    <div className="font-body">
+    <div className="font-roboto-slab">
       <Navbar />
       <Home />
       <About />

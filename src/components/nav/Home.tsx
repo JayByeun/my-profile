@@ -27,9 +27,16 @@ const Home = () => {
         </svg>
       </div>
 
-      {/* Center text */}
-      <div className="relative z-10 font-heading font-bold text-5xl text-black group-hover:text-white transition-colors duration-700">
-        Let's get to know!
+      <div className="flex flex-col gap-3 items-center text-black group-hover:text-white transition-colors duration-700">
+        <span className="z-10 font-lato font-bold text-xl text-rose-500">
+          Hey! I am
+        </span>
+        <span className="z-10 font-roboto-slab font-bold text-5xl">
+          Jayoung Byeun
+        </span>
+        <span className="z-10 font-lato font-bold text-2xl">
+          I am full-stack engineer!
+        </span>
       </div>
     </section>
   );
