@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import jayImage from "@/assets/IMG_central.JPG";
 
 const About = () => {
   return (
@@ -6,9 +7,9 @@ const About = () => {
       {/* Left half */}
       <div className="w-1/2 flex items-start justify-start">
         <img
-          src="./src/assets/IMG_central.JPG"
+          src={jayImage}
           alt="Jay B"
-          className="h-screen w-full object-cover"
+          className="h-screen w-auto object-cover"
         />
       </div>
 
