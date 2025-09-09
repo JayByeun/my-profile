@@ -12,6 +12,9 @@ const App = () => {
       <About />
       <Resume />
       <Contact />
+      <div className="flex justify-center items-center p-10">
+        <span> Copyright @2025 All rights reserved by Jay Byeun</span>
+      </div>
     </div>
   );
 };

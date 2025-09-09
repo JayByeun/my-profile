@@ -1,17 +1,19 @@
+import { Button } from "@/components/ui/button";
+
 const About = () => {
   return (
     <section id="about" className="min-h-screen flex flex-row bg-white">
       {/* Left half */}
-      <div className="w-1/2 flex items-center justify-center border-r border-gray-300">
+      <div className="w-1/2 flex items-start justify-start">
         <img
           src="./src/assets/IMG_central.JPG"
           alt="Jay B"
-          className="max-w-full h-auto"
+          className="h-screen w-auto object-cover"
         />
       </div>
 
       {/* Right half */}
-      <div className="w-1/2 flex flex-col justify-center gap-15 p-10">
+      <div className="w-1/2 flex flex-col justify-center gap-6 p-10">
         <h2 className="text-5xl font-bold">About Me</h2>
         <p className="w-full font-lato text-left text-m font-light text-gray-500">
           I am a Full-Stack Developer with over two years of experience
@@ -28,7 +30,7 @@ const About = () => {
           Back to the Future, and I never get tired of rewatching my favorite
           movies and series.
         </p>
-        <div className="flex flex-col gap-5 flex-start w-full">
+        <div className="flex flex-col gap-3 flex-start w-full">
           <div className="flex gap-3">
             <span className="font-bold w-20">Name: </span>
             <span className="text-m font-light font-lato">Jayoung Byeun</span>
@@ -48,6 +50,11 @@ const About = () => {
             <span className="text-m font-light font-lato">+1 346 562 2551</span>
           </div>
         </div>
+        <a href="./src/files/Jay_CV.pdf" download>
+          <Button className="rounded-xl w-35 bg-rose-300 hover:bg-rose-600 cursor-pointer">
+            DOWNLOAD CV
+          </Button>
+        </a>
       </div>
     </section>
   );

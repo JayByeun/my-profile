@@ -29,16 +29,16 @@ const SectionDetails = ({
 }: SectionDetailsProps) => {
   return (
     <div className="flex gap-3 items-start">
-      <Icon className="text-white bg-rose-300 rounded-2xl w-11 h-11 p-2 shrink-0" />
+      <Icon className="text-white bg-rose-300 rounded-2xl w-9 h-9 p-2 shrink-0" />
       <div className="flex flex-col gap-2">
         {date && (
-          <span className="text-m font-bold text-rose-300 font-lato">
+          <span className="text-sm font-bold text-rose-300 font-lato">
             {date}
           </span>
         )}
-        <span className="text-2xl font-bold font-lato">{title}</span>
+        <span className="text-xl font-bold font-lato">{title}</span>
         <div className="flex flex-col gap-2">
-          <span className="text-xl font-bold font-lato">{location}</span>
+          <span className="text-lg font-bold font-lato">{location}</span>
           {details && (
             <ul className="font-lato font-light text-m list-disc pl-6 gap-2 flex flex-col">
               {details.map((d) => (
@@ -91,7 +91,7 @@ const Resume = () => {
   };
 
   return (
-    <section id="resume" className="min-h-screen py-16 px-6 lg:px-20">
+    <section id="resume" className="min-h-screen py-10 px-6 lg:px-20">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar */}
         <aside className="md:w-1/4 sticky top-24 self-start">
@@ -152,7 +152,7 @@ const Resume = () => {
             ref={eduRef}
             className="flex flex-col min-h-[60vh] gap-4"
           >
-            <h3 className="text-2xl font-bold mb-4">Education</h3>
+            <h3 className="text-3xl font-bold mb-4">Education</h3>
             <div className="flex flex-col gap-15">
               <SectionDetails
                 icon={BookOpen}
@@ -186,7 +186,7 @@ const Resume = () => {
             ref={skillsRef}
             className="flex flex-col min-h-[60vh] gap-4"
           >
-            <h3 className="text-2xl font-bold mb-4">Skills</h3>
+            <h3 className="text-3xl font-bold mb-4">Skills</h3>
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-5">
                 <span>Languages</span>
@@ -223,7 +223,7 @@ const Resume = () => {
             ref={awardsRef}
             className="flex flex-col min-h-[60vh] gap-4"
           >
-            <h3 className="text-2xl font-bold mb-4">Awards</h3>
+            <h3 className="text-3xl font-bold mb-4">Awards</h3>
             <SectionDetails
               icon={Award}
               date="JUN 2013"
