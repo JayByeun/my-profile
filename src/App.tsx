@@ -1,7 +1,7 @@
 import Navbar from "./components/nav/Navbar";
 import Home from "./components/nav/Home";
 import About from "./components/nav/About";
-import Projects from "./components/nav/Projects";
+import Resume from "./components/nav/Resume";
 import Contact from "./components/nav/Contact";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <Navbar />
       <Home />
       <About />
-      <Projects />
+      <Resume />
       <Contact />
     </div>
   );

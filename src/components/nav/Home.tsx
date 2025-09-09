@@ -2,7 +2,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden group group-hover:text-white"
+      className="relative min-h-screen flex pt-55 justify-center overflow-hidden group group-hover:text-white"
     >
       {/* Bottom half white */}
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-white"></div>
@@ -27,14 +27,14 @@ const Home = () => {
         </svg>
       </div>
 
-      <div className="flex flex-col gap-3 items-center text-black group-hover:text-white transition-colors duration-700">
-        <span className="z-10 font-lato font-bold text-xl text-rose-500">
+      <div className="flex flex-col gap-7 items-center text-black group-hover:text-white transition-colors duration-700">
+        <span className="z-10 font-lato font-normal text-xl text-rose-500">
           Hey! I am
         </span>
         <span className="z-10 font-roboto-slab font-bold text-5xl">
           Jayoung Byeun
         </span>
-        <span className="z-10 font-lato font-bold text-2xl">
+        <span className="z-10 font-lato font-normal text-2xl">
           I am full-stack engineer!
         </span>
       </div>
