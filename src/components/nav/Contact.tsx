@@ -5,16 +5,27 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { Mail, Navigation, Phone } from "lucide-react";
 
 type ContactCardProps = {
   icon: React.ElementType;
   title: string;
   description: string;
+  disableHover: boolean;
 };
-const ContactCard = ({ icon: Icon, title, description }: ContactCardProps) => {
+const ContactCard = ({
+  icon: Icon,
+  title,
+  description,
+  disableHover,
+}: ContactCardProps) => {
   return (
-    <Card className="group flex flex-col gap-5 cursor-pointer w-55 items-center">
+    <Card
+      className={`flex flex-col gap-5 w-55 items-center ${
+        disableHover ? "" : "cursor-pointer group"
+      }`}
+    >
       <CardHeader className="flex items-center justify-center gap-3">
         <CardTitle>
           <div
@@ -164,7 +175,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center bg-white gap-10 py-10"
+      className="min-h-screen flex flex-col items-center justify-center bg-white gap-10"
     >
       <h2 className="text-4xl font-bold">Contact Me</h2>
       <div className="flex gap-6 font-lato">
@@ -173,17 +184,20 @@ const Contact = () => {
             icon={Mail}
             title="Email Address"
             description="jayoung.byeun@gmail.com"
+            disableHover={false}
           />
         </a>
         <ContactCard
           icon={Phone}
           title="Mobile"
           description="+1 (346) 562 2551"
+          disableHover={true}
         />
         <ContactCard
           icon={Navigation}
           title="Location"
           description="Houston, TX"
+          disableHover={true}
         />
       </div>
       {/* <div className="flex flex-col gap-5 w-full items-center">

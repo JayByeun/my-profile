@@ -8,7 +8,7 @@ const About = () => {
         <img
           src="./src/assets/IMG_central.JPG"
           alt="Jay B"
-          className="h-screen w-auto object-cover"
+          className="h-screen w-full object-cover"
         />
       </div>
 

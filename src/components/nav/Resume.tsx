@@ -91,7 +91,10 @@ const Resume = () => {
   };
 
   return (
-    <section id="resume" className="min-h-screen py-10 px-6 lg:px-20">
+    <section
+      id="resume"
+      className="min-h-screen flex justify-center pt-25 px-6 lg:px-20"
+    >
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar */}
         <aside className="md:w-1/4 sticky top-24 self-start">
