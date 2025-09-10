@@ -22,7 +22,7 @@ const ContactCard = ({
 }: ContactCardProps) => {
   return (
     <Card
-      className={`flex flex-col gap-5 w-55 items-center ${
+      className={`flex flex-col gap-5 w-55 ${
         disableHover ? "" : "cursor-pointer group"
       }`}
     >
@@ -178,7 +178,7 @@ const Contact = () => {
       className="min-h-screen flex flex-col items-center justify-center bg-white gap-10"
     >
       <h2 className="text-4xl font-bold">Contact Me</h2>
-      <div className="flex gap-6 font-lato">
+      <div className="hidden md:flex gap-6 font-lato">
         <a href="mailto:jayoung.byeun@gmail.com">
           <ContactCard
             icon={Mail}
@@ -199,6 +199,16 @@ const Contact = () => {
           description="Houston, TX"
           disableHover={true}
         />
+      </div>
+      <div className="flex md:hidden gap-6 font-lato">
+        <a href="mailto:jayoung.byeun@gmail.com">
+          <div
+            className="bg-rose-400 p-4 w-20 h-20 rounded-4xl flex items-center justify-center 
+                group-hover:bg-white transition-colors duration-300 ease-in-out"
+          >
+            <Mail className="text-white w-8 h-8 group-hover:text-rose-400" />
+          </div>
+        </a>
       </div>
       {/* <div className="flex flex-col gap-5 w-full items-center">
         <span className="text-lg font-bold">Contact Form</span>

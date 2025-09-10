@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section id="about" className="min-h-screen flex flex-row bg-white">
       {/* Left half */}
-      <div className="w-1/2 flex items-start justify-start">
+      <div className="hidden w-1/2 md:flex items-start justify-start">
         <img
           src={jayImage}
           alt="Jay B"
@@ -14,7 +14,7 @@ const About = () => {
       </div>
 
       {/* Right half */}
-      <div className="w-1/2 flex flex-col justify-center gap-6 p-10">
+      <div className="w-full md:w-1/2 flex flex-col justify-center gap-6 p-10">
         <h2 className="text-5xl font-bold">About Me</h2>
         <p className="w-full font-lato text-left text-m font-light text-gray-500">
           I am a Full-Stack Developer with over two years of experience

@@ -79,10 +79,15 @@ const Resume = () => {
   const [awardsRef, awardsInView] = useInView({ threshold: 0.3 });
 
   useEffect(() => {
-    if (eduInView) setActiveSection(Section.education);
-    else if (expInView) setActiveSection(Section.experience);
-    else if (skillsInView) setActiveSection(Section.skills);
-    else if (awardsInView) setActiveSection(Section.awards);
+    if (eduInView) {
+      setActiveSection(Section.education);
+    } else if (expInView) {
+      setActiveSection(Section.experience);
+    } else if (skillsInView) {
+      setActiveSection(Section.skills);
+    } else {
+      setActiveSection(Section.awards);
+    }
   }, [eduInView, expInView, skillsInView, awardsInView]);
 
   // Scroll to section
@@ -93,11 +98,11 @@ const Resume = () => {
   return (
     <section
       id="resume"
-      className="min-h-screen flex justify-center pt-25 px-6 lg:px-20"
+      className="min-h-screen flex justify-center px-6 lg:px-20"
     >
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-row gap-8 py-10 md:py-20">
         {/* Sidebar */}
-        <aside className="md:w-1/4 sticky top-24 self-start">
+        <aside className="hidden md:flex md:w-1/4 sticky top-24 self-start">
           <ul className="space-y-4">
             {Object.values(Section).map((sec) => (
               <li
