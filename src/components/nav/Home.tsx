@@ -8,7 +8,7 @@ const Home = () => {
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-white"></div>
 
       {/* Top half rose with wave border */}
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-rose-500 transition-all duration-700 ease-in-out group-hover:h-full">
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-rose-500 md:transition-all md:duration-700 md:ease-in-out md:group-hover:h-full">
         {/* Wavy top border */}
         <svg
           className="absolute top-0 left-0 w-full h-50"

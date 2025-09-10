@@ -22,7 +22,7 @@ const ContactCard = ({
 }: ContactCardProps) => {
   return (
     <Card
-      className={`flex flex-col items-center gap-5 w-55 ${
+      className={`flex flex-col items-center gap-5 w-full max-w-xs min-w-55 ${
         disableHover ? "" : "cursor-pointer group"
       }`}
     >
@@ -200,7 +200,7 @@ const Contact = () => {
           disableHover={true}
         />
       </div>
-      <div className="flex md:hidden gap-6 font-lato">
+      <div className="flex flex-wrap md:hidden gap-6 font-lato">
         <a href="mailto:jayoung.byeun@gmail.com">
           <div
             className="bg-rose-400 p-4 w-20 h-20 rounded-4xl flex items-center justify-center 
