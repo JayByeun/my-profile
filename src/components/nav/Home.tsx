@@ -24,7 +24,7 @@ const Home = () => {
 
       <div className="flex flex-col gap-7 items-center text-black group-hover:text-white transition-colors duration-700">
         <span className="z-10 font-lato font-normal text-xl text-rose-500">
-          Hey! I am
+          Hi! I am
         </span>
         <span className="z-10 font-roboto-slab font-bold text-4xl md:text-5xl">
           Jayoung Byeun
