@@ -16,13 +16,8 @@ const Home = () => {
           preserveAspectRatio="none"
         >
           <path
-            d="M0,80 
-               C150,20 250,100 360,60 
-               C480,20 600,100 720,50 
-               C840,0 960,80 1080,40 
-               C1200,0 1320,60 1440,20 
-               L1440,0 L0,0 Z"
-            fill="#FFFFFF" /* rose color */
+            d="M0,80 C150,20 250,100 360,60 C480,20 600,100 720,50 C840,0 960,80 1080,40 C1200,0 1320,60 1440,20 L1440,0 L0,0 Z"
+            fill="#ffffff"
           />
         </svg>
       </div>
@@ -31,10 +26,10 @@ const Home = () => {
         <span className="z-10 font-lato font-normal text-xl text-rose-500">
           Hey! I am
         </span>
-        <span className="z-10 font-roboto-slab font-bold text-5xl">
+        <span className="z-10 font-roboto-slab font-bold text-4xl md:text-5xl">
           Jayoung Byeun
         </span>
-        <span className="z-10 font-lato font-normal text-2xl">
+        <span className="z-10 font-lato font-normal text-xl md:text-2xl">
           I am full-stack engineer!
         </span>
       </div>
