@@ -30,7 +30,7 @@ const Home = () => {
           Jayoung Byeun
         </span>
         <span className="z-10 font-lato font-normal text-xl md:text-2xl">
-          I am full-stack engineer!
+          I am a full-stack engineer!
         </span>
       </div>
     </section>
