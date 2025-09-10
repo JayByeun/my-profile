@@ -23,7 +23,7 @@ const About = () => {
         </p>
         <p className="w-full font-lato text-left text-m font-light text-gray-500">
           I’m passionate about basketball and football and used to play as a
-          member of a women’s sports club. I’m also a bit of a space enthusiast—
+          member of a women’s sports club. I’m also a bit of a space enthusiast
           in my free time, I enjoy watching space documentaries and dreaming of
           one day being part of a spacecraft team. Beyond that, I love working
           on and watching car repairs. One of my bucket-list goals is to restore
