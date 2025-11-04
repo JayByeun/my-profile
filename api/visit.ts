@@ -1,40 +1,28 @@
-import express from "express";
 import mongoose from "mongoose";
-import cors from "cors";
 
-const app = express();
-app.use(cors({
-    origin: "https://jay-byeun.vercel.app/"
-}));
+let conn: typeof mongoose | null = null;
 
 const connectDB = async () => {
-  const conn = await mongoose.connect(process.env.MONGODB!);
-  if (!conn) {
-    return;
-  }
+  if (conn) return conn;
+  if (!process.env.MONGODB) throw new Error("MONGODB not set");
+  conn = await mongoose.connect(process.env.MONGODB);
   return conn;
 };
 
-const visitSchema = new mongoose.Schema({
-    date: {type: Date, default: Date.now},
-});
+export default async function handler(req, res) {
+  await connectDB();
 
-const Visit = mongoose.model("Visit", visitSchema);
+  const Visit = mongoose.models.Visit || mongoose.model(
+    "Visit",
+    new mongoose.Schema({ date: { type: Date, default: Date.now } })
+  );
 
-app.get("api/visit", async(req, res) => {
-     await connectDB();
+  await Visit.create({});
 
-    await Visit.create({});
-    const totalVisits = await Visit.countDocuments();
+  const total = await Visit.countDocuments();
+  const today = await Visit.countDocuments({
+    date: { $gte: new Date(new Date().setHours(0, 0, 0, 0)) },
+  });
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const todayVisits = await Visit.countDocuments({
-        date: {$gte: today},
-    });
-
-    res.json({total: todayVisits, today: todayVisits});
-});
-
-app.listen(5000, () => console.log("Server running on port 5000"));
+  res.status(200).json({ total, today });
+}
