@@ -5,9 +5,13 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
-mongoose.connect("mongodb+srv://jayb_profile_admin:QhIfcDNOUCbOQWk5@my-profile.8ymlxod.mongodb.net/?appName=my-profile")
-.then(() => console.log("MongoDB connected"))
-.catch((err) => console.error(err));
+let conn: typeof mongoose | null = null;
+
+const connectDB = async () => {
+  if (conn) return conn;
+  conn = await mongoose.connect(process.env.MONGODB!);
+  return conn;
+};
 
 const visitSchema = new mongoose.Schema({
     date: {type: Date, default: Date.now},
@@ -16,6 +20,8 @@ const visitSchema = new mongoose.Schema({
 const Visit = mongoose.model("Visit", visitSchema);
 
 app.get("api/visit", async(req, res) => {
+     await connectDB();
+
     await Visit.create({});
     const totalVisits = await Visit.countDocuments();
 
