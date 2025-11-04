@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
-import { Menu, X } from "lucide-react"; // icons for hamburger & close
-
+import { Menu, X } from "lucide-react";
 function getUserId() {
   let userId = localStorage.getItem("userId");
   if (!userId) {
