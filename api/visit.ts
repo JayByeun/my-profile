@@ -3,13 +3,15 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 const app = express();
-app.use(cors());
-
-let conn: typeof mongoose | null = null;
+app.use(cors({
+    origin: "https://jay-byeun.vercel.app/"
+}));
 
 const connectDB = async () => {
-  if (conn) return conn;
-  conn = await mongoose.connect(process.env.MONGODB!);
+  const conn = await mongoose.connect(process.env.MONGODB!);
+  if (!conn) {
+    return;
+  }
   return conn;
 };
 
