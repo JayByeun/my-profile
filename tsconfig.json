@@ -19,5 +19,5 @@
     },
     "types": ["next", "node"]
   },
-  "include": ["src"],
+  "include": ["src", "api/visit.js", "api/visit.ts"],
 }
