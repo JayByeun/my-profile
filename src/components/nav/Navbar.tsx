@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react"; // icons for hamburger & close
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const links = ["Home", "About", "Resume", "Contact"];
+  const [visits, setVisits] = useState({ total: 0, today: 0 });
+
+  useEffect(() => {
+    fetch("https://jay-byeun.vercel.app/")
+      .then((res) => res.json())
+      .then((data) => setVisits(data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full bg-white z-50 shadow">
@@ -20,6 +28,12 @@ const Navbar = () => {
         >
           Jay Byeun
         </Link>
+
+        <div className="flex gap-2 text-sm stats">
+          <h3>Visitor stats</h3>
+          <span>Today: {visits.today}</span>
+          <span>Total: {visits.total}</span>
+        </div>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-6">
