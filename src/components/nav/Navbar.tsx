@@ -14,16 +14,17 @@ function getUserId() {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const links = ["Home", "About", "Resume", "Contact"];
-  const [visits, setVisits] = useState({ total: 0, today: 0 });
+  const [todayCount, setTodayCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
-    const userId = getUserId();
+    const userId = getUserId(); // localStorage ID
 
     fetch(`https://jay-byeun.vercel.app/api/visit?username=${userId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("User visit data:", data.user);
-        console.log("Total visits:", data.total);
+        setTodayCount(data.today);
+        setTotalCount(data.total);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -45,8 +46,8 @@ const Navbar = () => {
 
         <div className="flex gap-2 text-sm stats">
           <h3>Visitor stats</h3>
-          <span>Today: {visits.today}</span>
-          <span>Total: {visits.total}</span>
+          <span>Today: {todayCount}</span>
+          <span>Total: {totalCount}</span>
         </div>
 
         {/* Desktop Nav */}

@@ -34,15 +34,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       { upsert: true, new: true }
     );
 
-    const totalVisits = await UserVisit.aggregate([
+    // Calculate total visits across all users
+    const totalResult = await UserVisit.aggregate([
       { $group: { _id: null, total: { $sum: "$count" } } }
     ]);
+    const total = totalResult[0]?.total || 0;
 
-    const total = totalVisits[0]?.total || 0;
+    // Calculate today's total visits
+    const today = await UserVisit.countDocuments({
+      lastVisit: { $gte: new Date(new Date().setHours(0, 0, 0, 0)) }
+    });
 
     res.status(200).json({
       user: { username: user.username, count: user.count },
       total,
+      today
     });
   } catch (err) {
     console.error(err);
