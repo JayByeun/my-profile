@@ -2,15 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react"; // icons for hamburger & close
 
+function getUserId() {
+  let userId = localStorage.getItem("userId");
+  if (!userId) {
+    // Generate a random string (or UUID)
+    userId = crypto.randomUUID();
+    localStorage.setItem("userId", userId);
+  }
+  return userId;
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const links = ["Home", "About", "Resume", "Contact"];
   const [visits, setVisits] = useState({ total: 0, today: 0 });
 
   useEffect(() => {
-    fetch("https://jay-byeun.vercel.app/api/visit")
+    const userId = getUserId();
+
+    fetch(`https://jay-byeun.vercel.app/api/visit?username=${userId}`)
       .then((res) => res.json())
-      .then((data) => setVisits(data))
+      .then((data) => {
+        console.log("User visit data:", data.user);
+        console.log("Total visits:", data.total);
+      })
       .catch((err) => console.error(err));
   }, []);
 
