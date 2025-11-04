@@ -7,7 +7,7 @@ const Navbar = () => {
     const links = ["Home", "About", "Resume", "Contact"];
     const [visits, setVisits] = useState({ total: 0, today: 0 });
     useEffect(() => {
-        fetch("https://jay-byeun.vercel.app/")
+        fetch("https://jay-byeun.vercel.app/api/visit")
             .then((res) => res.json())
             .then((data) => setVisits(data))
             .catch((err) => console.error(err));
