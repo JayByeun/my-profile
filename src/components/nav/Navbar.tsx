@@ -17,7 +17,11 @@ const Navbar = () => {
   const [todayCount, setTodayCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
 
+  const isVercel = window.location.hostname.includes("vercel.app");
   useEffect(() => {
+    if (!isVercel) {
+      return;
+    }
     const userId = getUserId();
 
     fetch(`https://jay-byeun.vercel.app/api/visit?username=${userId}`, {
@@ -46,12 +50,14 @@ const Navbar = () => {
           Jay Byeun
         </Link>
 
-        <div className="flex gap-2 text-sm stats">
-          <h3>Visitor</h3>
-          <span>|</span>
-          <span>Today: {todayCount}</span>
-          <span>Total: {totalCount}</span>
-        </div>
+        {isVercel && (
+          <div className="flex gap-2 text-sm stats">
+            <h3>Visitor</h3>
+            <span>|</span>
+            <span>Today: {todayCount}</span>
+            <span>Total: {totalCount}</span>
+          </div>
+        )}
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-6">
