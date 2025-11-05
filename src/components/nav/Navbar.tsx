@@ -25,8 +25,8 @@ const Navbar = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setTodayCount(parseInt(data.today));
-        setTotalCount(parseInt(data.total));
+        setTodayCount(parseInt(data.today, 10));
+        setTotalCount(parseInt(data.total, 10));
       })
       .catch((err) => console.error(err));
   }, []);
