@@ -18,13 +18,15 @@ const Navbar = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
-    const userId = getUserId(); // localStorage ID
+    const userId = getUserId();
 
-    fetch(`https://jay-byeun.vercel.app/api/visit?username=${userId}`)
+    fetch(`https://jay-byeun.vercel.app/api/visit?username=${userId}`, {
+      cache: "no-store",
+    })
       .then((res) => res.json())
       .then((data) => {
-        setTodayCount(data.today);
-        setTotalCount(data.total);
+        setTodayCount(parseInt(data.today));
+        setTotalCount(parseInt(data.total));
       })
       .catch((err) => console.error(err));
   }, []);
@@ -45,7 +47,8 @@ const Navbar = () => {
         </Link>
 
         <div className="flex gap-2 text-sm stats">
-          <h3>Visitor stats</h3>
+          <h3>Visitor</h3>
+          <span>|</span>
           <span>Today: {todayCount}</span>
           <span>Total: {totalCount}</span>
         </div>
