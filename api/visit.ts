@@ -7,7 +7,9 @@ const connectDB = async () => {
   if (conn) return conn;
   const mongoURI = process.env.MONGODB;
   if (!mongoURI) throw new Error("MONGODB not set");
-  conn = await mongoose.connect(mongoURI);
+  conn = await mongoose.connect(mongoURI, {
+    dbName: 'my-profile',
+  });
   return conn;
 };
 
@@ -21,7 +23,9 @@ const UserVisit = mongoose.models.UserVisit || mongoose.model("UserVisit", UserV
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
+     console.log("Connecting to MongoDB...");
     await connectDB();
+    console.log("MongoDB connected!");
 
     const { username } = req.query;
     if (!username || typeof username !== "string") {
@@ -50,8 +54,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       total,
       today
     });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Internal Server Error");
+  } catch (err: unknown) {
+    console.error("MongoDB error:", err);
+
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message });
+    } else {
+      // Fallback if err is not an Error object
+      res.status(500).json({ error: "Unknown error" });
+    }
   }
 }
